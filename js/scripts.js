@@ -212,13 +212,12 @@ $(document).ready(function () {
         e.preventDefault();
         var data = $(this).serialize();
 
-        $('#alert-wrapper').html(alert_markup('info', '<strong>Asteptati o secunda!</strong> Acum va salvam detaliile.'));
+        $('#alert-wrapper').html(alert_markup('info', '<strong>Asteptați o secundă!</strong> Acum vă salvăm detaliile.'));
 
-        if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
-            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
-            $('#alert-wrapper').html(alert_markup('danger', '<strong>Ne pare rau!</strong> Codul dumneavoastra e incorect.'));
+        if (MD5($('#invite_code').val()) !== 'e71e5cd119bbc5797164fb0cd7fd94a4') {
+            $('#alert-wrapper').html(alert_markup('danger', '<strong>Ne pare rau!</strong> Codul dumneavoastra este incorect.'));
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbxdp9kmxFzPqBZiiZuOnRs-W6GkzTQbH3gn-wqGGbZLHMEbeKZSpqNshSzsfjjYH6bp1w/exec', data)
+            $.post('https://script.google.com/macros/s/AKfycbwveTY-A11iH6dToikhGnhfGpbB54A5BwUQGzSXA7CDyXmFPrYi1GK68spiy5CTS1ndlg/exec', data)
                 .done(function (data) {
                     console.log(data);
                     if (data.result === "error") {
@@ -230,7 +229,7 @@ $(document).ready(function () {
                 })
                 .fail(function (data) {
                     console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> A aparut o problema cu server-ul. '));
+                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Ne pare rău!</strong> A aparut o problema cu server-ul. '));
                 });
         }
     });
